@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>30S</title>
+    <link rel="stylesheet" href="Style/30S.css">
+</head>
+<body>
+    <div id="setup-screen">
+        <div class="setup-content">
+            <div class="setup-logo">30S</div>
+            <div class="setup-form">
+                <div class="setup-step" id="step1">
+                    <h2>Welcome to 30S Setup</h2>
+                    <p>This wizard will guide you through the installation of 30S Terminal.</p>
+                    <p>Installation path: C:\Program Files\30S</p>
+                    <p>Required space: 128MB</p>
+                    <button class="setup-next">Next ></button>
+                </div>
+                <div class="setup-step" id="step2" style="display: none;">
+                    <h2>User Configuration</h2>
+                    <input type="text" id="username" placeholder="Enter username">
+                    <input type="password" id="password" placeholder="Enter password">
+                    <div class="setup-nav">
+                        <button class="setup-back">< Back</button>
+                        <button id="setup-complete">Install</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="boot-screen">
+        <div class="boot-content">
+            <div class="boot-logo">30S</div>
+            <div class="boot-progress">
+                <div class="boot-bar"></div>
+            </div>
+            <div class="boot-text">Initializing system...</div>
+        </div>
+    </div>
+    <div id="shutdown-screen" style="display: none;">
+        <div class="shutdown-content">
+            <div class="shutdown-logo">30S</div>
+            <div class="shutdown-text">System shutting down...</div>
+        </div>
+    </div>
+    <div id="os-console"></div>
+    <div class="input-container" style="display: flex; padding: 10px; background: #000;">
+        <input id="command-input" type="text" placeholder="Type a command...">
+        <button id="submit-command">Execute</button>
+    </div>
+    <script src="Scripts/30S.js"></script>
+</body>
+</html>

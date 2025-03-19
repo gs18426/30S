@@ -1,0 +1,283 @@
+body {
+    background-color: #000;
+    font-family: 'Consolas', monospace;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#os-console {
+    background-color: rgba(0, 0, 0, 0.9);
+    color: #00ff00;
+    padding: 20px;
+    overflow-y: auto;
+    flex-grow: 1;
+    height: calc(100vh - 70px);
+    font-size: 14px;
+    line-height: 1.6;
+    border: 1px solid #00ff00;
+    box-shadow: 0 0 20px #00ff00, 0 0 30px #00ff00, 0 0 40px #00ff00;
+    text-shadow: 0 0 10px #00ff00, 0 0 15px #00ff00;
+}
+
+#command-input {
+    background: #000;
+    border: 1px solid #00ff00;
+    color: #00ff00;
+    padding: 8px 15px;
+    margin: 10px;
+    font-family: 'Consolas', monospace;
+    font-size: 14px;
+    outline: none;
+    width: calc(100% - 120px);
+    box-shadow: 0 0 5px #00ff00;
+    text-shadow: 0 0 2px #00ff00;
+}
+
+#submit-command {
+    background: #000;
+    color: #00ff00;
+    border: 1px solid #00ff00;
+    padding: 8px 15px;
+    cursor: pointer;
+    font-family: 'Franklin Gothic Heavy', 'Arial Black', sans-serif;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 5px #00ff00;
+    text-shadow: 0 0 2px #00ff00;
+}
+
+#submit-command:hover {
+    background: #00ff00;
+    color: #000;
+}
+
+#boot-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.boot-content {
+    text-align: center;
+}
+
+.boot-logo {
+    font-size: 48px;
+    color: #00ff00;
+    margin-bottom: 20px;
+    font-family: 'Franklin Gothic Heavy', 'Arial Black', sans-serif;
+    text-shadow: 0 0 10px #00ff00;
+}
+
+.boot-progress {
+    width: 300px;
+    height: 4px;
+    background: #003300;
+    margin: 20px auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.boot-bar {
+    position: absolute;
+    width: 0%;
+    height: 100%;
+    background: #00ff00;
+    box-shadow: 0 0 10px #00ff00;
+    transition: width 3s ease-in-out;
+}
+
+.boot-text {
+    color: #00ff00;
+    font-family: 'Consolas', monospace;
+    text-shadow: 0 0 5px #00ff00;
+}
+
+#shutdown-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.shutdown-content {
+    text-align: center;
+}
+
+.shutdown-logo {
+    font-size: 48px;
+    color: #00ff00;
+    margin-bottom: 20px;
+    font-family: 'Franklin Gothic Heavy', 'Arial Black', sans-serif;
+    text-shadow: 0 0 10px #00ff00;
+    animation: fadeOut 2s ease-in-out forwards;
+}
+
+.shutdown-text {
+    color: #00ff00;
+    font-family: 'Consolas', monospace;
+    text-shadow: 0 0 5px #00ff00;
+    animation: fadeOut 2s ease-in-out forwards;
+}
+
+#setup-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    z-index: 2000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+}
+
+.setup-content {
+    text-align: center;
+}
+
+.setup-logo {
+    font-size: 48px;
+    color: #00ff00;
+    margin-bottom: 40px;
+    font-family: 'Franklin Gothic Heavy', 'Arial Black', sans-serif;
+    text-shadow: 0 0 10px #00ff00;
+}
+
+.setup-form {
+    background: rgba(0, 50, 0, 0.3);
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid #00ff00;
+    box-shadow: 0 0 20px #00ff00;
+    min-width: 400px;
+}
+
+.setup-step {
+    text-align: left;
+    padding: 20px;
+}
+
+.setup-step h2 {
+    color: #00ff00;
+    margin-bottom: 20px;
+    text-shadow: 0 0 5px #00ff00;
+    text-align: center;
+}
+
+.setup-step p {
+    color: #00ff00;
+    margin: 10px 0;
+    line-height: 1.5;
+}
+
+.setup-nav {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    align-items: center;
+}
+
+.setup-next, .setup-back, #setup-complete {
+    padding: 10px 20px;
+    height: 35px;
+    background: #000;
+    border: 1px solid #00ff00;
+    color: #00ff00;
+    cursor: pointer;
+    font-family: 'Consolas', monospace;
+    transition: all 0.3s ease;
+    min-width: 150px;
+    outline: none;
+    box-sizing: border-box;
+    margin-top: 20px;
+}
+
+.setup-next:hover, .setup-back:hover, #setup-complete:hover {
+    background: #00ff00;
+    color: #000;
+}
+
+.setup-next:active, .setup-back:active, #setup-complete:active {
+    transform: scale(0.95);
+    background: #003300;
+}
+
+.setup-form h2 {
+    color: #00ff00;
+    margin-bottom: 20px;
+    text-shadow: 0 0 5px #00ff00;
+}
+
+.setup-form input {
+    display: block;
+    width: 300px;
+    margin: 10px auto;
+    padding: 10px;
+    background: #000;
+    border: 1px solid #00ff00;
+    color: #00ff00;
+    outline: none;
+    font-family: 'Consolas', monospace;
+}
+
+#setup-complete {
+    margin-top: 20px;
+    min-width: 150px;
+    outline: none;
+}
+
+#setup-complete:hover {
+    background: #00ff00;
+    color: #000;
+}
+
+#setup-complete:active {
+    transform: scale(0.95);
+    background: #003300;
+}
+
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #00ff00;
+    border-radius: 4px;
+}
+
+*::selection {
+    background: transparent;
+}
+*::-moz-selection {
+    background: transparent;
+}
